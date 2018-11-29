@@ -1,8 +1,6 @@
-# Concepts
+# 🧠 Concepts
 
-## Directus
-
-The Directus [duh REKT iss](/img/directus.mp3) name is latin, meaning _laid straight, arranged in lines, having been arranged in lines_. The broadest goal of Directus is to present data in a simple, orderly, and intuitive way.
+> Directus ([duh REKT iss](/img/directus.mp3)) is latin for: _laid straight, arranged in lines_. The broadest goal of Directus is to present data in a simple, orderly, and intuitive way.
 
 ## Glossary
 

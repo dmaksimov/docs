@@ -2,7 +2,7 @@
 
 ## Database Mirroring
 
-### What is a Database?
+### What is a database?
 
 A database is like a very powerful spreadsheet that can store all sorts of information, such as: text, numbers, dates, images, raw data, and more. Directus has been built to support the most common type of relational database: SQL (Structured Query Language). If you're confused by "relational", it just means that you can add an item in the database once, and then relate it to many other items. For example, you could relate a single author to all of their books instead of typing the same author's name into each of their books.
 
@@ -55,11 +55,9 @@ mysql> CREATE DATABASE directus;
 Query OK, 1 row affected (0.00 sec)
 ```
 
-## System Database Overview
+## Directus Schema
 
 This document provides an explanation of all tables and fields within the Directus schema boilerplate.
-
-### System Table Overview
 
 | Name                          | Description
 |-------------------------------|-------------------------------------------------------------------------------|
@@ -79,9 +77,7 @@ This document provides an explanation of all tables and fields within the Direct
 | `directus_user_roles`         | Junction table allowing users to possess multiple roles
 | `directus_users`              | Directory of all App and API Users
 
-### System Field Overview
-
-#### directus_activity
+### `directus_activity`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -97,7 +93,7 @@ This document provides an explanation of all tables and fields within the Direct
 | datetime_edited             | Comment last edited datetime                                                  |
 | deleted_comment             | Whether the comment was deleted or not                                        |
 
-#### directus_activity_seen
+### `directus_activity_seen`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -106,7 +102,7 @@ This document provides an explanation of all tables and fields within the Direct
 | user                        | User who saw (Foreign Key: directus_users)                                    |
 | seen                        | If the user has seen this item                                                |
 
-#### directus_collection_presets
+### `directus_collection_presets`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -122,7 +118,7 @@ This document provides an explanation of all tables and fields within the Direct
 | view_options                | JSON of view options used                                                     |
 | translation                 | JSON field of optional user translations for additional names of the field    |
 
-#### directus_collections
+### `directus_collections`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -136,7 +132,7 @@ This document provides an explanation of all tables and fields within the Direct
 | note                        | A description of this collection                                              |
 | icon                        | Material Design icon name for the collection                                  |
 
-#### directus_fields
+### `directus_fields`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -160,7 +156,7 @@ This document provides an explanation of all tables and fields within the Direct
 
 Read more about the validation [PCRE patterns](http://php.net/manual/en/pcre.pattern.php) and [delimiters](http://php.net/manual/en/regexp.reference.delimiters.php).
 
-#### directus_files
+### `directus_files`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -183,7 +179,7 @@ Read more about the validation [PCRE patterns](http://php.net/manual/en/pcre.pat
 | upload_date                 | When the file was uploaded                                                    |
 | storage_adapter             | Which storage adapter was used to store the file                              |
 
-#### directus_folders
+### `directus_folders`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -191,7 +187,7 @@ Read more about the validation [PCRE patterns](http://php.net/manual/en/pcre.pat
 | name                        | Name of the folder                                                            |
 | parent_folder               | Name of parent Folder (Foreign Key: directus_folders)                         |
 
-#### directus_migrations
+### `directus_migrations`
 
 Phinx migrations table, record all migrations executed.
 
@@ -203,7 +199,7 @@ Phinx migrations table, record all migrations executed.
 | end_time                    | Migration end datetime                                                        |
 | breakpoint                  | ???                                                                           |
 
-#### directus_permissions
+### `directus_permissions`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -221,7 +217,7 @@ Phinx migrations table, record all migrations executed.
 | read_field_blacklist        | CSV of field names that can't be Read/Viewed                                  |
 | write_field_blacklist       | CSV of field names that can't be Created/Updated/Edited                       |
 
-#### directus_relations
+### `directus_relations`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -235,7 +231,7 @@ Phinx migrations table, record all migrations executed.
 | collection_b                | Collection name (B) for relationship                                          |
 | field_b                     | Field name (B) for relationship                                               |
 
-#### directus_revisions
+### `directus_revisions`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -249,7 +245,7 @@ Phinx migrations table, record all migrations executed.
 | parent_collection           | ID of parent Collection (relational edits only)                               |
 | parent_changed              | ???                                                                           |
 
-#### directus_roles
+### `directus_roles`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -260,7 +256,7 @@ Phinx migrations table, record all migrations executed.
 | ip_whitelist                | CSV of IPs allowed to connect to the API/App                                  |
 | nav_blacklist               | CSV of navigation items IDs to hide                                           |
 
-#### directus_settings
+### `directus_settings`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -268,7 +264,7 @@ Phinx migrations table, record all migrations executed.
 | key                         | The key (name) of the settings option. Must be unique                         |
 | value                       | The value of the settings option                                              |
 
-#### directus_user_roles
+### `directus_user_roles`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
@@ -276,7 +272,7 @@ Phinx migrations table, record all migrations executed.
 | user                        | User's ID (Foreign Key: directus_users)                                       |
 | role                        | Role's ID (Foreign Key: directus_roles)                                       |
 
-#### directus_users
+### `directus_users`
 
 | Field                       | Notes                                                                         |
 |-----------------------------|-------------------------------------------------------------------------------|
