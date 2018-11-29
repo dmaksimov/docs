@@ -2,9 +2,7 @@
 
 ## HTTP Web Server
 
-Directus has been tested on Apache 2, NGINX, and Caddy. In theory, it should work on any HTTP Server.
-
-The API requires the web server to support URL rewriting for routing the request.
+Directus has been tested on Apache 2, NGINX, and Caddy. In theory, it should work on any HTTP Server. The API requires the web server to support URL rewriting for routing the request.
 
 ### Server Specific
 
@@ -33,7 +31,7 @@ To install Directus you will first need a database and a database-user with acce
 
 Directus can manage your database's schema, this requires the user to have privileges to create, alter and drop tables in your database. Also the user must have the privilege to insert, update and delete items in the database.
 
-[Learn more about creating a database](./creating-a-database.md)
+[Learn more about creating a database](/guides/database.md#creating-a-database)
 
 ## PHP
 

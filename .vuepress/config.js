@@ -33,11 +33,11 @@ module.exports = {
         collapsable: false,
         children: [
           ['/getting-started/introduction', 'Introduction'],
-          '/getting-started/installation',
-          '/getting-started/concepts',
+          ['/getting-started/installation', 'Installation'],
+          ['/getting-started/concepts', 'Concepts'],
           ['/getting-started/contributing', 'Contributing'],
-          '/getting-started/troubleshooting',
-          '/getting-started/supporting-directus',
+          ['/getting-started/supporting-directus', 'Supporting Directus'],
+          ['/getting-started/troubleshooting', 'Troubleshooting'],
         ]
       },
       {

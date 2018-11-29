@@ -1,8 +1,6 @@
-# Supporting Directus
+# ❤️ Supporting Directus
 
-> Directus is both premium and free – two things that don't often go together.
-
-It takes an enormous amount of resources to maintain and advance the platform, and it's only through our community's support that we're able to keep this project active. There are _many_ ways to support our open-source software, most of which don't cost a penny. Please consider helping keep Directus open-source through one of the methods below – our entire team and community would greatly appreciate it!
+> **Directus is both premium and free — two things that don't often go together.** It takes significant resources to maintain and advance the platform. If you'd like to help keep Directus active and open-source please consider supporting it through one of the methods below.
 
 ## Financial Support
 

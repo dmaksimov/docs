@@ -1,6 +1,10 @@
-# Troubleshooting
+# 🤔 Troubleshooting
 
-Below are some solutions to common issues that you may experience when working with Directus. If a proper solution isn't found here then you can post questions to [StackOverflow](https://stackoverflow.com/questions/tagged/directus) or reach out to the community and core team [on Slack](https://slack.getdirectus.com)!
+> Below are solutions to some common issues that you may experience when working with Directus. You can also post questions to [StackOverflow](https://stackoverflow.com/questions/tagged/directus) or reach out to the members of our [Slack](https://slack.getdirectus.com) community!
+
+::: warning Premium Support
+Due to the enormous number of people using Directus, our Core Team can only provide support to paying Directus Cloud customers or clients who purchase support hours.
+:::
 
 ## Installation Issues
 
