@@ -1,12 +1,12 @@
 # Installation
 
-The easiest way to get up-and-running with Directus is with our [combined release](https://github.com/directus/directus), which includes the [Directus API](https://github.com/directus/api), the [Directus Application](https://github.com/directus/app), and all required dependencies. Check that your server meets the requirements, install Directus, and then configure it with the installer.
+> The easiest way to get up-and-running is with the [Directus Suite](https://github.com/directus/directus), which includes the [Directus API](https://github.com/directus/api), the [Directus App](https://github.com/directus/app), and all dependencies.
 
 ## Requirements
 
 Learn more about these system requirements, neccesary permissions, and other server-specific prerequisites on our [dedicated requirements page](/api/admin/requirements.md).
 
-* HTTP/Web Server
+* HTTP/Web Server such as Apache, nginx or Caddy
 * MySQL 5.2+
     * Database (empty or existing)
     * Database User (with access to database)
@@ -15,7 +15,7 @@ Learn more about these system requirements, neccesary permissions, and other ser
 
 ## Setup
 
-The preferred method of installing is through Git by running the following command from your server's command line.
+Running the following `git` command from your server's command line is the preferred method of installing the codebase.
 
 ```bash
 git clone https://github.com/directus/directus.git

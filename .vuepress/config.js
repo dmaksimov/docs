@@ -32,10 +32,10 @@ module.exports = {
         title: '🐰 Getting Started',
         collapsable: false,
         children: [
-          '/getting-started/about-directus',
+          ['/getting-started/about-directus', 'Introduction'],
           '/getting-started/installation',
           '/getting-started/concepts',
-          '/getting-started/contributing',
+          ['/getting-started/contributing', 'Contributing'],
           '/getting-started/troubleshooting',
           '/getting-started/supporting-directus',
         ]

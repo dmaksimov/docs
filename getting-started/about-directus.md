@@ -1,8 +1,6 @@
-# Introduction
+# 🐰 Welcome to the Directus Docs!
 
-### 🐰 Welcome to the Directus Docs!
-
-These Docs will help get you up-and-running quickly, guide you through advanced features, and explain the concepts that make Directus so powerful and unique.
+> These Docs will help get you up-and-running quickly, guide you through advanced features, and explain the concepts that make Directus so unique.
 
 ## What is Directus?
 
