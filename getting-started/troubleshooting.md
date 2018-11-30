@@ -16,6 +16,10 @@ This is shown when the API you're trying to connect to doesn't have any extensio
 
 The application is a single-page webapp, meaning that all routing is done client side. By default, the app tries using pretty URLs for it's pages. If your webserver doesn't route all requests to `/index.html` correctly, there's no page to return and you'll end up with a 404. To fix this, you can either update your servers routing setup _or_ switch the app's [`routerMode` to `hash`](./config-file.md).
 
+### My MAMP installation returns 403s for everything
+
+MAMP has a known issue where it strips out the `Authorization` header which Directus uses to provide the API with the user token. To fix this, change MAMP's PHP setting from CGI to Module mode.
+
 ## Buildchain Issues
 
 If for some reason the buildchain is acting up, or you're not seeing the changes you've made reflected in the browser, please try the following things:
