@@ -6,11 +6,11 @@
 
 Our servers and full-time staff all cost money. Far more money than we generate through our paid Cloud Service or donations. For this reason, any financial support gets us closer to being self-sufficient. If you can spare the cash, we have a few ways to help us keep the lights on.
 
-### Membership
+### Memberships
 
 We accept memberships through our Patreon account. These monthly donations are the ideal financial contribution since  they're a bit more dependable and we can roughly predict the monthly amount. To become a member/sponsor, please [visit our Patreon page](https://www.patreon.com/directus).
 
-### Donations
+### One-Time Donations
 
 Unfortunately, Patreon [doesn't support one-time payments](https://patreon.zendesk.com/hc/en-us/articles/204606215-Can-I-make-a-one-time-payment). Instead, you can use our [PayPal account](https://paypal.me/supportdirectus) to send a single financial donation.
 
@@ -22,15 +22,19 @@ Our merchandise is a great way to support Directus – you get a shirt and we ge
 
 Another great way to get something back for your financial support (other than our amazing software) is to commission Directus work. If you need an interface, layout, or other custom feature – just [reach out to our parent company](mailto:contact@rngr.org?subject=Directus+Commission+Inquiry) to design and build it for you. If it can be merged into our Core codebase then it even benefits the entire community!
 
+### Premium Support
+
+If you need a little extra help setting things up, or would like to have a monthly retainer of premium support hours please
+
 ## Platform Contributions
 
-Since most of our financial support goes to our staff, another excellent way to help out is by contributing your services. And don't worry, you don't even need to be a developer!
+Most of our financial support is used to compensate our Core Staff, so another excellent way to help out is by contributing your time or services. And don't worry, you don't even need to be a developer!
 
 ### Pull Requests
 
-Whether squashing [bugs](https://github.com/directus/app/issues?q=is%3Aopen+is%3Aissue+label%3Abug), [optimizing](https://github.com/directus/app/issues?q=is%3Aopen+is%3Aissue+label%3Aoptimization) the codebase, increasing unit tests, or adding [new features](https://github.com/directus/app/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement), submitting pull-requests through GitHub is extremely valuable. The best places to contribute are our [App](https://github.com/directus/app) (front-end) and [API](https://github.com/directus/api) (back-end).
+Whether squashing [bugs](https://github.com/directus/app/issues?q=is%3Aopen+is%3Aissue+label%3Abug), [optimizing](https://github.com/directus/app/issues?q=is%3Aopen+is%3Aissue+label%3Aoptimization) the codebase, increasing test coverage, or adding [new features](https://github.com/directus/app/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement), submitting pull-requests through GitHub is extremely valuable. The best places to contribute are our [App](https://github.com/directus/app) (front-end) and [API](https://github.com/directus/api) (back-end).
 
-[Learn more about Contributing](#)
+[Learn more about Contributing](/getting-started/contributing.md)
 
 ### Docs
 
@@ -44,7 +48,7 @@ Directus is a worldwide project. Our team and users are spread out across the gl
 
 This one is surprisingly underutilized. If you encounter a bug within Directus, no matter how small, we would _love_ to hear about it. With such a small team, it's difficult for us to test every commit. Sometimes after we update a small snippet of code, a totally different piece of code breaks elsewhere. More people using and testing the software is always good, but if no one reports the issues they come across then it may not get fixed!
 
-## Advocate our Brand
+## Brand Advocates
 
 No money or time?? You can still help us out. You can have the best software in existence, but if no one knows about it then what good is it? Marketing and advertising cost money... money we don't have (see above). You can help us avoid these costs by getting the word out... and that word is: _Directus_.
 

@@ -4,13 +4,14 @@
 
 ## Requirements
 
-Please ensure your server meets the following requirements:
+Directus supports different stacks, however this guide specifically covers LAMP. Please ensure your server meets the following requirements:
 
-* **HTTP/Web Server**
-    * Such as Apache, nginx or Caddy
+* **Apache**
+    * _Other HTTP Servers: [NGINX](#) or [Caddy](#)_
 * **MySQL 5.2+**
-    * Database (empty or existing)
-    * Database User (with access to database)
+    * A Database (empty or existing)
+    * A Database User (with access to database)
+    * _Other SQL Vendors: [MariaDB](#) or [Percona](#)_
 * **PHP 7.1+**
     * Extensions:  `pdo`, `mysql`, `curl`, `gd`, `fileinfo`, and `mbstring`
 
@@ -60,3 +61,7 @@ Alternatively, you can [manually configure Directus](/advanced/api/configure.md)
 ## Logging In
 
 Once you've completed the installer you will automatically be taken to the login page of the Directus App (again, at `/admin`). You can then login with the credentials you provided during configuration, or the default credentials (`admin@example.com` and `password`) if configured manually.
+
+---
+
+👍 You've successfully installed Directus! Now you're ready to [add your first collection](/guides/collections.ms).

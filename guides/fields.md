@@ -1,65 +1,50 @@
 # Fields
 
+> A Field is a specific type of value within a Collection. For example, you might have _Title_, _Body_, _Author_, and _Date Published_ fields within an _Articles_ collection. Each field represents a database column.
+
 ## Adding Fields
 
-Adding a field to Directus is straightforward, but the process varies depending on what type of field you are creating. Let's walk through the four possible steps in order.
+To get started, go to _Settings > Collections & Fields_, choose the Collection you want to add the field to, then click "New Field".
 
-### Choosing an Interface
+### 1. Choose an Interface
 
 Do you want a Toggle? Text Input? Map? Dropdown? Relationship? There are many Core Interfaces available here, with even more Extension Interfaces available. This is always the first step when creating a new field, and dictates the rest of the process.
 
-### Schema Options
+### 2. Set the Schema Options
 
 Only the "Name" is required for this step, but it's good to familiarize yourself with the other options to get the most out of each field.
 
-* **Name**
-  The technical name used in the database and API. It should be letters only, lowercase, with underscores for spaces.
-* **Display Name**
-  You can not edit this value, it is just a preview of the above technical name in a more human readable format. This is how users will see the field name throughout the App.
-* **Note**
-  This optional note will appear beside the field on the Item Detail page to give helpful context to users.
+* **Name** — The database column name and API field key. Lowercase alphanumeric and underscores.
+* **Display Name** — A formatted preview of how users will see the field name throughout the App.
+* **Note** — Optional helper text shown beside the field on the Item Detail page.
+* **Advanced Options**
+  * **Directus Type** — Directus specific type that the interface supports (eg: `string`, `number`).
+  * **Datatype** — Database-specific type to use (eg: `VARCHAR`, `INT`, etc).
+  * **Length** — Max size of data that can be contained by this field.
+  * **Default** — The default value for this field. Used for new items if the field is left blank.
+  * **Validation** — A RegEx string used to validate the value on save.
+  * **Validation Message** — Custom validation message displayed if the above validation fails
+  * **Required** — Whether or not this field requires a value.
+  * **Readonly** — Whether or not this field's interface is interactive on the item detail page
+  * **Unique** — Whether or not this field's value must be unique within the collection.
+  * **Hidden Detail** — Hides the field on the Item Detail page.
+  * **Hidden Browse** — Hides the field on the Item Browse page.
 
-#### Advanced
+### 3. Relationship Setup
 
-* **Directus Type**
-  Directus specific type that the interface supports (eg `string`, `number`).
-* **Datatype**
-  The database-specific type to use (eg `VARCHAR`, `DATETIME`, etc).
-* **Length**
-  The max length of the field. For example, a string-type field with `length` is 10 only allows values up to 10 characters.
-* **Default**
-  The default value for this field. Will be added when an item is created but the field left blank.
-* **Validation**
-  RegEX string that will be used to validate the value on save and upload.
-* **Validation Message**
-  A custom validation message that will be returned if the validation fails according to the RegEX string in the _Validation_ option.
-* **Required**
-  Whether or not a value is required in this field.
-* **Readonly**
-  Makes the interface non-interactive on the item detail page, resulting in the value only being readable by the user.
-* **Unique**
-  Makes sure the value is unique before saving. Will error out if it's not.
-* **Hidden on Detail**
-  Hides the field on the item detail pages.
-* **Hidden on Items**
-  Hides the field on the item layout pages.
+This step only appears if you selected a relational interface, such as _Many to Many_ or _Translations_. If you're unfamiliar with relationships you can learn how to configure them in our [Relationships Guide](/guides/relationships.md).
 
+### 4. Interface Options
 
-### Relationships
+Interfaces are highly customizable with options that allow you to tailor them to individual uses. These vary depending on interface complexity, with less-common options hidden within an "Advanced" accordion.
 
-If you selected a relational interface, like _Many to Many_ or _Translations_, you're required to setup the relationship.
+## Field Layout
 
-::: tip
-Learn more about [relationships and how they work](./relationships.md)
-:::
+You can change the order, size, position, and grouping of fields on the Item Detail page to create tailored forms for each collection. A unified interface is in development to modify all of these options at once.
 
-### Interface Options
+## Column Order
 
-Interfaces are highly customizable with options that allow you to tailor them to individual uses. These vary depending on interface complexity, with more edge-case options collapsed within an "Advanced" accordion.
-
-## Reordering Fields
-
-Reordering fields provides a natural default order within the Items page. This order will be reflected in the column order in the database.
+Directus fields completely mirror their respective database columns, however the specific order of columns in the database can be used to optimize query performance. Therefore Directus allows you to manage column order and field layout separately. Use the drag handles on the left of each field to update their order in the database.
 
 ## Deleting Fields
 
