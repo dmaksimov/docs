@@ -1,6 +1,8 @@
-# Directus CLI
+# Command-Line Interface
 
-Directus Command-Line Interface (CLI) provides commands that allow you to perform various tasks such as installation, resetting a user's email, or upgrading the database to the most recent Directus schema.
+> Directus CLI provides commands that allow you to perform various tasks such as installation, resetting a user's email, or upgrading the database to the most recent Directus schema.
+
+## Help
 
 You can use the `help` command at any time to learn about available CLI actions:
 
@@ -16,16 +18,16 @@ To get more information on an specific command you can type "help" followed by t
 php bin/directus help install
 ```
 
-### Install Module
+## Install Module
 
 Includes commands to install and configure Directus.
 
-#### Configure Directus:
+### Configure Directus:
 
 Creates the `config.api.php` file.
 
 :::warning
-This command will overwrite the default `config.api.php` configuration file.
+This command will overwrite any existing default configuration file at `config.api.php`.
 :::
 
 ```bash
@@ -38,19 +40,19 @@ php bin/directus install:config -h <db_host> -n <db_name> -u <db_user> -p <db_pa
 * `db_pass` - The database user's password
 * `directus_email` - (Optional) The Directus email that will be used as sender in the mailing process
 
-Example: http://example.local
+#### Example: http://example.local
 
 ```bash
 php bin/directus install:config -h localhost -n directus -u root -p pass
 ```
 
-Example: http://example.local/directus
+#### Example: http://example.local/directus
 
 ```bash
 php bin/directus install:config -h localhost -n directus -u root -p pass -d directus
 ```
 
-#### Populate the Database Schema:
+### Populate the Database Schema:
 
 Creates all of the Directus Core tables based on the configuration files: `/config/api.php`.
 
@@ -58,7 +60,7 @@ Creates all of the Directus Core tables based on the configuration files: `/conf
 php bin/directus install:database
 ```
 
-#### Install Initial Configurations:
+### Install Initial Configurations:
 
 Create the default admin user and the site's default settings.
 
@@ -70,17 +72,17 @@ php bin/directus install:install -e <admin_email> -p <admin_password> -t <site_n
 * `admin_password` - The admin password
 * `site_name` - The project title
 
-Example:
+#### Example
 
 ```bash
 php bin/directus install:install -e admin@directus.local -p password -t "Directus Example"
 ```
 
-### User Module
+## User Module
 
 Includes commands to manage Directus users
 
-#### Change User Password:
+### Change User Password:
 
 ```bash
 php bin/directus user:password -e <user_email> -p <new_password>
@@ -89,13 +91,13 @@ php bin/directus user:password -e <user_email> -p <new_password>
 * `user_email` - The user's email
 * `new_password` - The user's new password
 
-Example:
+#### Example
 
 ```bash
 php bin/directus user:password -e admin@directus.local -p newpassword
 ```
 
-### Database Module
+## Database Module
 
 Includes commands to manage Directus database schema
 
@@ -107,13 +109,13 @@ This requires that Directus has a valid connection configured in `config/api.php
 Always backup your database before running the database module to prevent data loss.
 :::
 
-#### Install Directus Schema:
+### Install Directus Schema:
 
 ```bash
 php bin/directus db:install
 ```
 
-#### Upgrade Directus Schema
+### Upgrade Directus Schema
 
 ```
 $ bin/directus db:upgrade
@@ -125,9 +127,9 @@ The command above will upgrade the default project database, to update an specif
 $ bin/directus db:upgrade -N <project-name>
 ```
 
-### Log Module
+## Log Module
 
-#### Prune Old Log Files
+### Prune Old Log Files
 
 ```bash
 php bin/directus log:prune <days>

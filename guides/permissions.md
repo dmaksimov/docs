@@ -1,14 +1,10 @@
 # Permissions
 
-Directus permissions are extremely granular and powerful, but don't feel overwhelmed, you don't need to use or even understand the more advanced features to setup basic roles.
-
-::: tip
-Use the "All/None" shortcut on hover of each row or click the column header to toggle that permission for all collections.
-:::
+> Directus permissions are extremely granular and powerful, but don't feel overwhelmed, you don't need to use or even understand the more advanced features to setup basic roles.
 
 ## Collection Level
 
-Directus supports the standard Create, Read, Update, and Delete permissions, and adds additional support for Comments and Explanations. Furthermore, some privileges have the ability to be scoped to the current user or other their role. Below are all of the collection-level permissions:
+Directus supports the standard Create, Read, Update, and Delete (CRUD) permissions, and adds additional support for Comments and Explanations. Furthermore, some privileges have the ability to be scoped to the current user or other their role. Below are all of the collection-level permissions:
 
 ### Create
 
@@ -53,6 +49,10 @@ Directus supports the standard Create, Read, Update, and Delete permissions, and
 
 :::tip NOTE
 The `mine` and `role` permission options are only available when the parent collection contains a `created_by` field type. See below for setup.
+:::
+
+::: tip
+Hover over of each row to access an "All/None" shortcut per collection, or click the column header to toggle that permission for all collections.
 :::
 
 ### Accountability

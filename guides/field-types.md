@@ -1,6 +1,6 @@
 # Directus Field Types
 
-In order to support multiple SQL vendors (MySQL, PostgreSQL, MS-SQL, etc) Directus has a generalized set of field types allowing for more control over API output (`array`, `json`, `boolean`, etc) and to better define system data (`m2o`, `alias`, `group`, etc). When creating or updating fields within the API, you also send a vendor-specific datatype for more granular DBA control over data storage.
+> To support multiple SQL vendors (MySQL, PostgreSQL, MS-SQL, etc) Directus has a generalized set of field types to define API output (`array`, `json`, `boolean`, etc) and system data (`m2o`, `alias`, `group`, etc).
 
 * `alias` – Fields that do not have corresponding column in the database
 * `array` – Standard array format in API response
@@ -26,3 +26,7 @@ In order to support multiple SQL vendors (MySQL, PostgreSQL, MS-SQL, etc) Direct
 * `datetime_updated` – System field to track the datetime an item was updated, used by revisions
 * `user_created` – System field to track the user who created an item, used by revisions
 * `user_updated` – System field to track the user who updated an item, used by revisions
+
+::: tip Datatypes
+When creating or updating fields you can also set a vendor-specific datatype for more granular DBA control over data storage.
+:::

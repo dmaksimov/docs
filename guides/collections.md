@@ -1,5 +1,7 @@
 # Collections
 
+> A Collection is a grouping of similar Items. Each collection represents a table in your database.
+
 ## Creating Collections
 
 To create a collection, head over to the _Collections & Fields_ page in the _Admin Settings_. From here, click the "New" button ("+") in the top right and enter a new for your collection. This is the technical name used in the database and API. After the collection has been created you're taken to the settings page for this new collection. From here you can [setup the fields](./fields.md) and configure the collection's settings:
@@ -18,7 +20,7 @@ In certain schema architectures, you may find it helpful to have a collection th
 
 ## Managing Collections
 
-Collections added through Directus are automatically managed, however collections added outside of Directus are unmanaged by default. This avoids issues with dynamically created temporary tables or any tables outside the scope of your project. Directus completely ignores any unmanaged collections.
+Collections added through Directus are automatically managed, however collections added directly to the database are unmanaged by default. This avoids issues with dynamically created temporary tables or any tables outside the scope of your project. Directus completely ignores any unmanaged collections.
 
 ## Deleting Collections
 

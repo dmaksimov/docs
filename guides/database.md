@@ -1,10 +1,12 @@
 # Database
 
+> The Database is the container for your entire Directus project. It is kind of like a very powerful spreadsheet.
+
 ## Database Mirroring
 
-### What is a database?
+### What is a relational database?
 
-A database is like a very powerful spreadsheet that can store all sorts of information, such as: text, numbers, dates, images, raw data, and more. Directus has been built to support the most common type of relational database: SQL (Structured Query Language). If you're confused by "relational", it just means that you can add an item in the database once, and then relate it to many other items. For example, you could relate a single author to all of their books instead of typing the same author's name into each of their books.
+Directus has been built to support the most common type of relational database: SQL (Structured Query Language). If you're confused by "relational", it just means that you can add an item in the database once, and then relate it to many other items. For example, you could relate a single author to all of their books instead of typing the same author's name into each of their books.
 
 ### How Directus works with databases
 
