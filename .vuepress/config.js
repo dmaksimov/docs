@@ -44,12 +44,13 @@ module.exports = {
         title: '📖 Guides',
         collapsable: true,
         children: [
+          '/guides/user-guide',
           '/guides/auth',
           '/guides/cli',
           '/guides/collections',
           '/guides/database',
-          '/guides/field-types',
           '/guides/fields',
+          '/guides/field-types',
           ['/guides/i18n', 'Internationalization'],
           '/guides/permissions',
           '/guides/relationships',
@@ -57,10 +58,9 @@ module.exports = {
           '/guides/settings',
           '/guides/sso',
           '/guides/status',
-          '/guides/styleguide',
+          ['/guides/style-guide', 'Style Guide'],
           '/guides/thumbnailer',
           '/guides/upgrading',
-          '/guides/user-guide',
         ]
       },
       {

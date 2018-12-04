@@ -1,14 +1,14 @@
 # SSO
 
-For Single Sign-On (SSO) to function properly, a user with a matching email address must already exist within `directus_users`. If you would like to manage users _externally_ then you would use our [SCIM endpoints](../api/reference.html#scim).
+> For Single Sign-On (SSO) to function properly, a user with a matching email address must already exist within `directus_users`. If you would like to manage users _externally_ then you would use our [SCIM endpoints](../api/reference.html#scim).
 
-* Table of Contents
-    * [Google](#google)
-    * [Twitter](#twitter)
-    * [Facebook](#facebook)
-    * [GitHub](#github)
-    * [Okta](#okta)
-    * [SSO Flow](#sso-flow)
+### Table of Contents
+* [Google](#google)
+* [Twitter](#twitter)
+* [Facebook](#facebook)
+* [GitHub](#github)
+* [Okta](#okta)
+* [SSO Flow](#sso-flow)
 
 ## Google SSO
 

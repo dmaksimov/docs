@@ -1,6 +1,6 @@
 # Status
 
-The `status` interface adds soft-delete and workflow capabilities to its parent collection. Let's take a look at how to properly configure it to take full advantage of its power and flexibility.
+> The Status interface adds soft-delete and workflow options to its parent collection. Let's take a look at how to properly configure it to take full advantage of its power and flexibility.
 
 ## Status Mapping
 
@@ -59,7 +59,7 @@ The core status interface should work for 90% of use-cases, but you can still ta
 
 ## Soft-Delete Flow
 
-To `soft delete` an item, the API does the following:
+When soft-deleting an item, the API does the following:
 
 1. Check if the collection has a status field
 2. Check if the delta data has the status field (_Meaning the status was changed_)

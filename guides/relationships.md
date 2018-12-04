@@ -1,8 +1,6 @@
 # Relationships
 
-When creating a data model, it’s a good idea to organize different types of data into different collections — for example, storing _customers_ separate from _orders_. This means we need to create "connections" between data — otherwise, we wouldn’t know which customer placed a given order. These connections are called relationships, and they are the glue that connects data in a relational database.
-
-There are multiple types of relationships but Directus only needs to store **one**: the Many-to-One (M2O). We'll see how this is possible later, but first let's review each relationship type.
+> If certain collections within your project are related then you can connect them with Relationships. There are multiple types of relationships but technically Directus only needs to store one: the **Many-to-One**.
 
 ## Many-to-One
 
@@ -30,12 +28,12 @@ In this example the `directors` collection uses the default `id` primary key, wh
 
 Here are some screenshots that show the above process in more detail.
 
-<img src="/img/m2o/field.png" width="100">
-<img src="/img/m2o/interface.png" width="100">
-<img src="/img/m2o/name.png" width="100">
-<img src="/img/m2o/relation.png" width="100">
-<img src="/img/m2o/options.png" width="100">
-<img src="/img/m2o/done.png" width="100">
+<img src="../img/m2o/field.png" width="100">
+<img src="../img/m2o/interface.png" width="100">
+<img src="../img/m2o/name.png" width="100">
+<img src="../img/m2o/relation.png" width="100">
+<img src="../img/m2o/options.png" width="100">
+<img src="../img/m2o/done.png" width="100">
 
 ## One-to-Many
 
@@ -62,11 +60,11 @@ Technically, this process does not create a new field, it remotely manages the r
 
 Here are some screenshots that show the above process in more detail.
 
-<img src="/img/o2m/field.png" width="100">
-<img src="/img/o2m/interface.png" width="100">
-<img src="/img/o2m/name.png" width="100">
-<img src="/img/o2m/relation.png" width="100">
-<img src="/img/o2m/relation.png" width="100"> <!-- done -->
+<img src="../img/o2m/field.png" width="100">
+<img src="../img/o2m/interface.png" width="100">
+<img src="../img/o2m/name.png" width="100">
+<img src="../img/o2m/relation.png" width="100">
+<img src="../img/o2m/relation.png" width="100"> <!-- done -->
 
 ## Direction Matters
 
@@ -76,7 +74,7 @@ Now we understand that a M2O and O2M are the _exact_ same relationship... just v
 An easy way to remember which side is which: the "many" is an actual column that stores the foreign key, while the "one" side is a simulated column using the `ALIAS` datatype.
 :::
 
-![O2M + M2O](/img/o2m-m2o.png)
+![O2M + M2O](../img/o2m-m2o.png)
 
 ## Many-to-Many
 
@@ -111,14 +109,14 @@ This setup is specific to the `movies → genres` (M2M) field. The following ste
 
 Here are some screenshots that show the above process in more detail.
 
-<img src="/img/m2m/create_junction.png" width="100">
-<img src="/img/m2m/junction.png" width="100">
-<img src="/img/m2m/interface.png" width="100">
-<img src="/img/m2m/relation.png" width="100">
-<img src="/img/m2m/options.png" width="100">
-<img src="/img/m2m/done.png" width="100">
+<img src="../img/m2m/create_junction.png" width="100">
+<img src="../img/m2m/junction.png" width="100">
+<img src="../img/m2m/interface.png" width="100">
+<img src="../img/m2m/relation.png" width="100">
+<img src="../img/m2m/options.png" width="100">
+<img src="../img/m2m/done.png" width="100">
 
-![M2M](/img/m2m.png)
+![M2M](../img/m2m.png)
 
 ## Many-to-Any
 
@@ -126,7 +124,7 @@ The many-to-any (M2X) allows you to connect items within **Collection A** to man
 
 This type of relationship goes by many different names, and is often referred to by its specific purpose. Some names include: matrix field, replicator, M2MM, M2X, M2N, etc.
 
-![M2M](/img/m2mm.png)
+![M2M](../img/m2mm.png)
 
 ## Translations
 

@@ -1,6 +1,6 @@
 # Settings
 
-The App's Settings area is only available to members of the Administrator role. This is where you create your data model, choose interfaces, define permissions, setup your instance of Directus, and more.
+> Restricted to members of the administrator role, Settings is where you create the data model, choose interfaces, define permissions, and configure the Directus App and API.
 
 ## Global Settings
 

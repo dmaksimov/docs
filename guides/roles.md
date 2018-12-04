@@ -1,10 +1,10 @@
 # Roles
 
-Directus Roles allow you to group users and control their experience in the app as well as the permissions they have in regards to your data.
+> Roles allow for grouping users and controlling their access to data within the App and API. As of now, users can only be assigned to a single role, but our system is architected to allow for the merging of multiple roles in the future.
 
 ## Default Roles
 
-Directus by default has two (non-removable) roles.
+Directus by default has two core roles that are included with each install. These roles can not be removed.
 
 ### Administrators
 
@@ -12,15 +12,11 @@ Users with this role have full permissions for all data within the system and ar
 
 ### Public
 
-This special role defines what data is accessible _without_ being authenticated.
+This special role defines what data is accessible _without_ being authenticated. By default, the public role does not have permission to any data. You can not assign users to this role.
 
 ## Creating Roles
 
-You can also create additional roles that limit access for specific purposes. As of now, users can only be assigned to a single role, but our system is architected in a way to allow for merging multiple roles in the future.
-
-A role can be created by clicking on the "New" button ("+") in the top right of the _Roles & Permissions_ page in the _Admin Settings_.
-
-Roles have a couple options that allow you to further edit the user's experience:
+You can create any number of additional roles to organize users or limit their access to content. A role can be created by clicking on the "New" button ("+") in the top right of the _Roles & Permissions_ page in the _Admin Settings_. Roles have the following options:
 
 ### Description
 
@@ -32,10 +28,8 @@ A CSV of IP addresses that are allowed to connect to the API. This can be used t
 
 ### Permissions
 
-Directus extends the typical CRUD access control to add even more granularity. For more information on how to set the base permissions (Create, Read, Update, Delete, Comment, and Explain).
+Directus extends the typical CRUD access control to add even more granularity. To learn more about defining permissions, check out our [Permissions Guide](./permissions.md).
 
-To learn more about setting up and using permissions, checkout our [doc on permissions](./permissions.md).
+## Deleting Roles
 
-### Deleting Roles
-
-To delete a role: first remove all its users, then click the Delete button in the header of the Role Detail page.
+To delete a role, first remove all its users, then click the Delete button in the header of the Role Detail page.

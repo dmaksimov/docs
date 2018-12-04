@@ -1,8 +1,6 @@
-# Directus Style Guidelines
+# Directus Style Guide
 
-## Introduction
-
-A lot of thought has gone into the Directus brand and UX. It is therefore extremely important to maintain consistency across the Application and all extensions. Whenever possible, this guide should be followed to the letter. If any questions arise please feel free to reach out to Ben Haynes on Directus Slack (@Ben), the Project Lead and head designer.
+> A lot of thought has gone into the Directus brand, user-experience (UX), and user-interface (UI). Therefore it is important to follow this guide precisely so that consistency is maintained across the App and all extensions.
 
 ## Global CSS Variables
 
@@ -28,6 +26,8 @@ Directus uses 3 main breakpoints. They are given to `vue-mq` as well and can be 
 
 ## Layers
 
+Customazible through property. Modals should always have the top most layer
+
 | Element | z-index |
 |---------|---------|
 | content-area | 0 |
@@ -37,10 +37,6 @@ Directus uses 3 main breakpoints. They are given to `vue-mq` as well and can be 
 | sidebar-nav | 30 |
 | modal | 100 |
 | loader | 500* |
-
-_Customazible through property_
-
-Modals should always have the top most layer
 
 ## Typography
 
@@ -254,7 +250,7 @@ For spacing (padding/margin) of elements and components, increments of 10, 20, 3
 
 Each field's interface is displayed on the Item Detail page alongside a field label and field note. The system renders both of these so there is no need to include them in your interface styling. In fact, to maintain a proper distance between the label, interface, and note – no additional padding/margin should be applied to the top or bottom of the interface (unless warranted).
 
-![Field Labels & Field Notes](/img/styleguide/system.png)
+![Field Labels & Field Notes](../img/styleguide/system.png)
 
 ## Interface States
 
@@ -262,9 +258,9 @@ Each field's interface is displayed on the Item Detail page alongside a field la
 
 This is the normal state of an interface, before it gets focus.
 
-![Interface States — Default](/img/styleguide/normal.png)
+![Interface States — Default](../img/styleguide/normal.png)
 
-![Interface States — Placeholder](/img/styleguide/placeholder.png)
+![Interface States — Placeholder](../img/styleguide/placeholder.png)
 
 Background
 ```css
@@ -288,7 +284,7 @@ placeholder: --lighter-gray
 
 The main difference here is that the background is transparent and there is no hover/focus state. The value should still be selectable so that it can be copied to the clipboard if needed.
 
-![Readonly & Disabled](/img/styleguide/readonly.png)
+![Readonly & Disabled](../img/styleguide/readonly.png)
 
 Background
 ```css
@@ -299,14 +295,14 @@ transparent
 
 Inherits default style, but border darkens.
 
-![Hover](/img/styleguide/hover.png)
+![Hover](../img/styleguide/hover.png)
 
 Border
 ```css
 --light-gray
 ```
 
-![Cards](/img/styleguide/cards.png)
+![Cards](../img/styleguide/cards.png)
 
 Cards should have a White background and use the global Box Shadow. When hovered, they should transition to the Box Shadow Accent, and should shift up 1px. Together, this will give the effect of raising/floating off the background.
 
@@ -317,9 +313,9 @@ Hover: `--box-shadow-accent`
 
 The focus state should be an obvious but not overstated change, typically using the global Accent color. Borders should transition to the accent and text should darken. Secondary information should be initially hidden, and shown only on focus (eg: characters remaining indicator seen below). If an inline icon is used, it can also transition to the Accent color on focus (see below).
 
-![Focus](/img/styleguide/focus.png)
+![Focus](../img/styleguide/focus.png)
 
-![Left Icon Focus](/img/styleguide/focus-icon.png)
+![Left Icon Focus](../img/styleguide/focus-icon.png)
 
 Border
 ```css
@@ -335,11 +331,11 @@ Text
 
 Each field must pass system validation to be saved, if it is invalid then the interface itself should show this. Borders should transition to Danger. Additionally, an icon (typically "X") can be shown inline. Text should remain the default focus color, but can transition to Danger upon blur. Optionally, you can create an explicit valid state to be shown while updating/typing.
 
-![Invalid Focus](/img/styleguide/invalid.png)
+![Invalid Focus](../img/styleguide/invalid.png)
 
-![Invalid Blur](/img/styleguide/invalid-blur.png)
+![Invalid Blur](../img/styleguide/invalid-blur.png)
 
-![Explicit Valid](/img/styleguide/explicit-valid.png)
+![Explicit Valid](../img/styleguide/explicit-valid.png)
 
 Border
 ```css
@@ -366,7 +362,7 @@ Interfaces are updated on the Item Detail page (see above), but a static value i
 * Status Interface
   Shows as a "badge" or "placard" to help it stand out. There is also an option to only show a dot of color (no text) for a more minimal view.
 
-![Listing View](/img/styleguide/listing.png)
+![Listing View](../img/styleguide/listing.png)
 
 ::: tip
 There are other Item Listing views such as Calendar, Card, Map, etc. But the Tabular (seen above) is the system default/fallback – so this is the one that must be considered first.

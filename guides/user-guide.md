@@ -1,14 +1,12 @@
 # App User Guide
 
-This guide is written for non-technical users who are just getting started with Directus or who are looking to learn more about the lesser-known features of the Application. If you are installing or configuring the Directus App, you may be interested in our [Admin Docs](#). Those looking to extend or customize the Directus App codebase should reference our [Contributor Docs](#).
-
-If you're completely new to the platform it is recommended that you read our [What is Directus](../what-is-directus.html) article.
+> This guide is written for non-technical users just getting started with Directus — it does not cover setup or other Admin features. If you're completely new to the platform it is recommended that you read our [Introduction to Directus](../getting-started/introduction.html).
 
 ## Login
 
-![Login](/img/screenshots/login.png)
+![Login](../img/screenshots/login.png)
 
-This is probably the first Directus page you'll see, so let's learn a bit more about what you can do here. First, Directus uses your email address instead of a username, so there's one less thing to forget. Simply enter your email address and type in your Directus password.
+This is probably the first Directus page you'll see, so let's learn a bit more about what you can do here. First, Directus uses your email address instead of a username, so there's one less thing to forget. Simply enter your email address and type in your Directus user's password.
 
 ::: tip
 You can see which version of the Directus App you're using by hovering over the "Powered by Directus" text at the bottom of the page.
@@ -28,7 +26,7 @@ Remember, your account passwords may be different on separate projects, even if 
 
 ### Single Sign-On
 
-![SSO](/img/screenshots/sso.png)
+![SSO](../img/screenshots/sso.png)
 
 Next to the default secure login, Directus allows you to use several external services as means of authentication.
 
@@ -40,9 +38,9 @@ Clicking one of these icons will take you to a secure login page of the service 
 
 Your password is securely encrypted, so no one can remind you what it is if forgotten. Instead, click on the "Forgot Password" link and enter the email address you use to log in. Directus will then send you an email with a temporary reset link; simply click on that link or paste it into your browser to reset your password.
 
-## App Overview
+## Overview
 
-![App Overview](/img/screenshots/app-overview.png)
+![App Overview](../img/screenshots/app-overview.png)
 
 ### Header
 
@@ -102,13 +100,13 @@ The main section of the app contains the actual page's content.
 
 ## Collections
 
-![Collections](/img/screenshots/collections.png)
+![Collections](../img/screenshots/collections.png)
 
 A "collection" is a _group_ or _category_ of items. This could be almost anything: articles, projects, customers, sales, reports, messages, etc. This page lists all of the collections you have access to.
 
 ## Items
 
-![Item Browse](/img/screenshots/item-browse-order.png)
+![Item Browse](../img/screenshots/item-browse-order.png)
 
 This page displays the items within a collection. All the inforation you need might be displayed here, or you can use this page to find and manage specific items. This is one of the most powerful pages in Directus, with many different features available depending on the layout chosen.
 
@@ -185,7 +183,7 @@ Alternatively, simply clicking on an item will take you to its [Item Detail](#It
 
 ## Item Detail
 
-![Item Detail](/img/screenshots/item-detail.png)
+![Item Detail](../img/screenshots/item-detail.png)
 
 This page is used to view, create, edit, or delete a specific item based on your [role permissions](#). The main content of this page shows the interface for each available field. The [Info Sidebar](#) of this page is used for Item Activity and Comments.
 
@@ -254,7 +252,7 @@ Also in the info sidebar, and comingled with the activity timeline, are any comm
 
 ## File Library
 
-![File Library](/img/screenshots/file-library.png)
+![File Library](../img/screenshots/file-library.png)
 
 The file library is an annex of all files added to Directus. Files may be added through item fields (eg: a slideshow interface) or directly to the File Library itself. To add a file directly to the library, drag a file directly onto the page or click the New button ("+") in the header. Directus automatically pulls in metadata from added files/embeds, such as: description, location, tags, and dimensions.
 
@@ -266,7 +264,7 @@ By default the File Library displays as a Card layout with thumbnails, but you c
 
 ## User Directory
 
-![User Directory](/img/screenshots/user-directory.png)
+![User Directory](../img/screenshots/user-directory.png)
 
 The user directory is a single place to browse all Directus users. Clicking on a user here will open up their user profile page.
 
@@ -278,7 +276,7 @@ Clicking on any user's name or avatar throughout the system will open a modal to
 
 ## My Account
 
-![User Detail](/img/screenshots/user-detail.png)
+![User Detail](../img/screenshots/user-detail.png)
 
 This shortcut to your user's profile is where you can edit account information such as: email address, password, avatar, and more. Below we'll cover what each core field is for, but your specific user page might have additional fields added by your administrator.
 
@@ -295,18 +293,14 @@ This shortcut to your user's profile is where you can edit account information s
 
 ## My Activity
 
-![Activity](/img/screenshots/my-activity.png)
+![Activity](../img/screenshots/my-activity.png)
 
 Every edit, creation, deletion, upload, comment, login, and error – all captured in one place. This timeline of activity allows you to go back in time to what you did and when.
 
-## Permissions
+## Limited Permissions
 
-The features described above assume you have full permissions, however your user's role may have limited permissions. You may only see a subset of collections, fields, items or pages depending on on the privileges you've been granted. Furthermore, access to items and fields may change based on Workflow, so it's possible that if you edit an item's status it may suddenly disappear or become read-only. This is all normal and is configured by your project's administrator.
+The features described above assume you have full permissions, however your user's role may have limited permissions. You may only see a subset of collections, fields, items or pages depending on the privileges you've been granted. Furthermore, access to items and fields may change based on Workflow, so it's possible that if you edit an item's status it may suddenly disappear or become read-only. This is all normal and is configured by your project's administrator.
 
 Keep permissions in mind when discussing content or sending links to colleages, as they may not be able to see/edit the same items you have access to.
 
-Only users with the Administrator role are guaranteed to see _everything_ in the system, including some special features only available to them. To learn more about the Administrator role, please click the link below to read our next guide:
-
----
-
-[Continue on to: App Admin Guide](./admin)
+Only users with the Administrator role are guaranteed to see _everything_ in the system, including some special features only available to them. Learn more about the [Administrator Role](./roles.md).
