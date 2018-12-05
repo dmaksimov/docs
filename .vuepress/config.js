@@ -82,8 +82,6 @@ module.exports = {
         collapsable: true,
         children: [
           ['/extensions/', 'Introduction'],
-          '/extensions/app-customization',
-          '/extensions/architecture',
           '/extensions/auth-providers',
           '/extensions/custom-endpoints',
           '/extensions/hooks',
