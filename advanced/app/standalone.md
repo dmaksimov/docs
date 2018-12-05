@@ -1,4 +1,6 @@
-# Installing the Directus Application
+# Standalone Application
+
+> Our decoupled architecture allows you to install just the Directus Application, without the API. This is useful if you want one App to manage multiple APIs.
 
 ## Requirements
 
@@ -44,6 +46,24 @@ $ docker run -it -d -e API_URL=<url> -p <port>:80 <name>
 
 Replace `<url>` with the API URL you'd like to connect to, `<port>` with the port you want the application to be exposed on, and `<name>` with a name of your choosing which Docker will use internally.
 
-## Post-Installation
+## Configuration
 
 After you've installed the application, you need to create a config file. This file controls what API instances the app tries to connect to. The easiest way to create this file is by renaming or duplicating the `config_example.js` file to `config.js` and adjusting the default settings within.
+
+## Updating
+
+### Using Git
+
+If you're using a direct clone of the `build` branch, all you need to do to update the application is run
+
+```bash
+$ git pull
+```
+
+### Manually
+
+Updating is basically the same as installing fresh. You can download a copy of the latest version from [the releases page](https://github.com/directus/app/releases) and overwrite the files you had before. **Make sure not to override your `config.js` file**.
+
+### Using Docker
+
+Updating the application is the same as in the manual way. Download a fresh copy of the application from the [releases page](https://github.com/directus/app/releases) and overwrite all the files in use. Remember to restart your Docker process.

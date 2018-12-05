@@ -1,21 +1,19 @@
-# Config File
+# Configuring the App
 
-The application uses a (client side) config file in order to set certain behavioral settings. The config file is a JavaScript file that adds an object into the window's global scope, which the application in turn uses.
+> The App uses a client side config file in order to set certain behavioral settings. The config file is a JavaScript file that adds an object into the window's global scope, which the application in turn uses.
 
-The following options are available:
-
-## API
+## Allowed APIs
 
 The `api` key allows you to set the API URL the application tries to connect to. The object follows the format `"url": "name"`:
 
 ```js
 {
   // ...
-  
+
   api: {
     "https://demo-api.directus.app/_/": "Directus Demo API"
   }
-  
+
   // ...
 }
 ```
@@ -25,13 +23,13 @@ You can add multiple API urls by adding multiple keys to this object. This will 
 ```js
 {
   // ...
-  
+
   api: {
     "https://demo-api.directus.app/_/": "Directus Demo API",
     "http://localhost:8080/_/": "Local Test",
     "https://api.example.com/prod/": "Example Production"
   }
-  
+
   // ...
 }
 ```
@@ -52,14 +50,14 @@ These "absolute" links mean that your server will have to route every request to
 
 The alternative value for this option is `hash`. In `hash` mode, every link will be prepended with a `#` character, which results in the browser treating every link as the same page. This fixes the routing problem mentioned above, and allows you to use the application on servers where you can't control the routing rules on the server.
 
-**History Mode**  
+**History Mode**
 ```url
 https://directus.app/collections/projects/2
 https://directus.app/settings/roles/5
 https://directus.app/ext/dashboard
 ```
 
-**Hash Mode**  
+**Hash Mode**
 ```url
 https://directus.app/#/collections/projects/2
 https://directus.app/#/settings/roles/5

@@ -232,7 +232,7 @@ Directus allows for fields to be set in 1, 2, 3, or 4 columns. These columns app
   --width-x-large: 620px;
 ```
 
-[Click here to learn more about the layout of the edit form](/app/contributor/edit-form-grid.md).
+[Click here to learn more about the layout of the edit form](/advanced/app/edit-form-grid.md).
 
 ### Height
 

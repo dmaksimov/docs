@@ -16,11 +16,11 @@ The base schema and system content included in a fresh/blank copy of Directus.
 
 ### Client
 
-An external application using Database managed data.
+An external application using data managed by Directus.
 
 ### Collection
 
-A set of items, saved as a SQL table
+A Collection is a grouping of similar Items. Each collection represents a table in your database.
 
 ### Collection Preset
 
@@ -45,17 +45,17 @@ A Mustache-style string used to format field values. For example:
 {{first_name}} {{last_name}}, {{title}}
 ```
 
-### Environment (env)
+### Environment
 
 A flag set in the project config: either `production` or `staging` (not to be confused with deployment environments).
 
 ### Extension
 
-Anything that extends the core codebase, including: Interfaces, Pages, Storage Adapters, SSO Services, etc.
+Anything that extends the core codebase, including: Interfaces, Pages, Storage Adapters, SSO Services, and more.
 
 ### Field
 
-A single piece of information contained in an item. Saved as a SQL column or alias.
+A Field is a specific type of value within a Collection. For example, you might have _Title_, _Body_, _Author_, and _Date Published_ fields within an _Articles_ collection. Each field represents a database column. Saved as a SQL column or alias.
 
 ### Field Type
 
@@ -71,7 +71,7 @@ An API install managing one or more projects on a server.
 
 ### Interface
 
-The GUI for a field (the actual thing that the user interacts with to create and edit the data for the field).
+Interfaces allow for different ways of viewing and interacting with field data. These interfaces are primarily used on the edit form of the Item Detail page, but also render readonly data on the Item Browse page.
 
 ### Item
 
@@ -79,17 +79,17 @@ A single record of data. Contains values for the fields. Saved as a SQL row.
 
 ### Length
 
-The amount/size of data that can be stored in a single field.
+The amount/size of data that can be stored in a database column or Directus field.
 
 ### Layout
 
-The GUI for a collection's items. Displays the items in the user-set way.
+The presentation of data on the Item Browse page. This could be a listing, tiles, calendar, map, chart, or any other way to showcase data.
 
 ### Multitenancy
 
 The Directus suite of software has been designed for projects both simple and complex, both small and enormous. To accomodate this, you can install the App and API individually or use the bundled version which combines both. This decoupled approach allows for a single App to manage any number of APIs, even if they are located on different servers. Additionally, each API supports multiple databases, so you only need to install a single instance for all your projects and deployment environments.
 
-![Suite Overview](/img/overview.png)
+![Suite Overview](../img/overview.png)
 
 ::: tip
 Feel free to use our always-up-to-date hosted App to connect to any publicly accessible Directus API instance: [https://directus.app](https://directus.app/).
@@ -103,15 +103,12 @@ Descriptive text displayed with a field.
 
 A database, config, and file storage directory. Also used for deployment environments (eg: `prod`, `stage`, `dev`).
 
-The following project names are reserved by Directus Core and can not be used. Each represents a root-level API endpoint that exists now or may exist in the future.
+:::tip Reserved Project Names
+The following reserved project names can not be used because they represent root-level API endpoints that exist now or may exist in the future:
 
-- `server`
-- `projects`
-- `interfaces`
-- `pages`
-- `layouts`
-- `types`
+`server`, `projects`, `interfaces`, `pages`, `layouts`, `types`
+:::
 
 ### Schema
 
-The SQL database's architecture, not including any content.
+The SQL database's tables, columns, datatypes, defaults, and other architectual information. This does not include any items or content.

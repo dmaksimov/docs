@@ -1,8 +1,10 @@
-# Apache Setup
+# Server Setup
 
-To get Directus working on Apache servers all you need to do is ensure that traffic is routed to the correct files.
+> To get Directus working on most servers all you need to do is ensure that traffic is routed to the correct files. Let's take a look at some common examples below.
 
-## mod_rewrite
+## Apache
+
+### mod_rewrite
 
 The [`mod_rewrite`](https://httpd.apache.org/docs/current/mod/mod_rewrite.html) is an Apache module that uses a ruled-based rewriting engine to rewrite requested URLs.
 
@@ -10,13 +12,13 @@ Directus API requires `mod_rewrite` to be enabled on Apache, because it uses the
 
 The rewrite rules are include in Directus API inside the `public` directory in a `.htaccess` file that serve as the front controller for all the endpoints.
 
-### Install mod_rewrite
+#### Install mod_rewrite
 
 Apache include `mod_rewrite` by default. If that's not the case, how to install it will depends on your system and apache version, and the best option will be to go to the [Compiling and Installing](http://httpd.apache.org/docs/trunk/en/install.html) section on Apache and tries to compile and install `mod_rewrite` individually.
 
 Apache has a tool called [`apxs`](https://httpd.apache.org/docs/2.4/programs/apxs.html) (APache eXtenSion) for lets you build and install modules this is a good option to install new modules from source.
 
-### Enable mod_rewrite
+#### Enable mod_rewrite
 
 There's different way to enable a module after being installed. On ubuntu-based distribution can be enabled using `a2enmod` script.
 
@@ -38,11 +40,11 @@ LoadModule rewrite_module modules/mod_rewrite.so
 
 `rewrite_module` is the module name and `modules/mod_rewrite.so` is the path where the module file is located. In this case the module file is relative to the `ServerRoot` configured in your `httpd.conf`
 
-### Check if mod_rewrite is enabled
+#### Check if mod_rewrite is enabled
 
 Using the command line you can execute: `apachectl -M | grep 'rewrite'` and it will filter all installed modules that matches `rewrite`, if `rewrite_module` is returned, congratulations you already have installed and enabled `mod_rewrite` in your system.
 
-## AllowOverride
+### AllowOverride
 
 Directus API comes with `.htaccess` files for the required configuration. These `.htaccess` won't work until the `AllowOverride` directive is set within a Directory block.
 
@@ -54,7 +56,7 @@ Directus API comes with `.htaccess` files for the required configuration. These 
 Directus `.htaccess` actually uses `FileInfo` for rewriting and `Options` to following symlinks
 :::
 
-## Example
+### Example
 
 ```
 <VirtualHost *:80>
@@ -74,3 +76,52 @@ Directus `.htaccess` actually uses `FileInfo` for rewriting and `Options` to fol
 ::: tip
 `.htaccess` is the default filename for the `AccessFileName` directive.
 :::
+
+## NGINX
+
+### `directus.conf`
+
+```
+location /api {
+  if (!-e $request_filename) {
+    rewrite ^/api/extensions/([^/]+) /api/api.php?run_extension=$1 last;
+  }
+  rewrite ^ /api/api.php?run_api_router=1 last;
+}
+
+location / {
+  try_files $uri $uri/ /index.php$args;
+}
+
+location /thumbnail {
+  rewrite ^ /thumbnail/index.php last;
+}
+
+# Force file extensions to output as text
+location ~ ^/(media|storage)/.*\.(php|phps|php5|htm|shtml|xhtml|cgi.+)?$ {
+  add_header Content-Type text/plain;
+}
+
+# No direct access to extension files
+location ~* [^/]+/customs/extensions/api\.php$ {
+  return 403;
+}
+
+# No direct access to custom API endpoint files
+location ~* /customs/endpoints/ {
+  deny all;
+}
+
+include pagespeed.conf;
+```
+
+### `pagespeed.conf`
+
+```
+# Prevent PageSpeed module from rewriting/breaking the templates files
+pagespeed Disallow */app/**/*.html;
+```
+
+## Caddy
+
+Coming soon.

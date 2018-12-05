@@ -20,6 +20,14 @@ module.exports = {
     ['meta', { name: "msapplication-config", content: "/browserconfig.xml" }]
   ],
   themeConfig: {
+    lastUpdated: 'Last Updated',
+    repo: 'directus/docs',
+    docsDir: '',
+    editLinks: true,
+    serviceWorker: true,
+    hiddenLinks: [
+      '/api-reference/reference.html',
+    ],
     nav: [
       { text: 'Website', link: 'https://directus.io' },
       { text: 'Cloud', link: 'https://directus.cloud' },
@@ -67,7 +75,7 @@ module.exports = {
         title: '🚀 API Reference',
         collapsable: true,
         children: [
-          '/api-reference/',
+          '/api-reference/reference',
         ]
       },
       {
@@ -95,58 +103,17 @@ module.exports = {
         title: '🚧 Advanced',
         collapsable: true,
         children: [
-          ['/advanced/app/install', 'Standalone App'],
-          ['/advanced/api/install', 'Standalone API'],
+          ['/advanced/other-install-methods', 'Other Install Methods'],
+          ['/advanced/source', 'Local Dev Environment'],
+          ['/advanced/server-setup', 'Server Setup'],
+          ['/advanced/app/standalone', 'Application Standalone Install'],
+          ['/advanced/app/configuration', 'Application Configuration'],
+          ['/advanced/api/standalone', 'API Standalone Install'],
+          ['/advanced/api/configuration', 'API Configuration'],
+          ['/advanced/api/codebase', 'API Codebase'],
+          // ['/advanced/deploying-versions', 'Deploying Versions'],
         ]
       }
-      // {
-      //   title: 'API',
-      //   collapsable: true,
-      //   children: [
-      //     ['/api/reference', 'API Reference'],
-      //     ['/', '┄┄┄┄┄┄┄┄┄┄'],
-      //     ['/api/admin/', 'Admin Guide'],
-      //     ['/api/admin/install', 'Installing'],
-      //     ['/api/admin/update', 'Updating'],
-      //     ['/api/admin/configure', 'Configuring'],
-
-      //     ['/', '┄┄┄┄┄┄┄┄┄┄'],
-      //     ['/api/contributor/', 'Contributor Guide'],
-      //     ['/api/contributor/codebase-overview', 'Codebase Overview'],
-      //     ['/api/contributor/database-overview', 'Database Overview'],
-      //     ['/api/contributor/resources', 'Resources'],
-      //     ['/api/contributor/troubleshooting', 'Troubleshooting']
-      //   ]
-      // },
-      // {
-      //   title: 'Application',
-      //   collapsable: true,
-      //   children: [
-      //     ['/app/user-guide', 'User Guide'],
-      //     ['/', '┄┄┄┄┄┄┄┄┄┄'],
-      //     ['/app/admin/', 'Admin Guide'],
-      //     ['/app/admin/install', 'Installing'],
-      //     ['/app/admin/update', 'Updating'],
-      //     ['/app/admin/troubleshooting', 'Troubleshooting'],
-      //     ['/app/admin/collections', 'Collections'],
-      //     ['/app/admin/fields', 'Fields'],
-      //     ['/app/admin/relationships', 'Relationships'],
-      //     ['/app/admin/status', 'Status'],
-      //     ['/app/admin/roles', 'Roles'],
-      //     ['/', '┄┄┄┄┄┄┄┄┄┄'],
-      //     ['/app/contributor/', 'Contributor Guide'],
-      //     ['/app/contributor/install-dev', 'Development Environment'],
-      //     ['/app/contributor/helpers', 'Helpers'],
-      //     ['/app/contributor/i18n', 'Internationalization'],
-      //     ['/app/contributor/resources', 'Resources'],
-      //     ['/app/contributor/troubleshooting', 'Troubleshooting']
-      //   ]
-      // }
-
-    ],
-    lastUpdated: 'Last Updated',
-    repo: 'directus/docs',
-    docsDir: '',
-    editLinks: true
+    ]
   }
 };

@@ -47,15 +47,15 @@ Option              | Description
 
 ## Soft Delete
 
-As mentioned above, Soft Delete is meant to _feel_ like an item has been deleted without permanently removing it from the database. They are hidden from both the App and API responses unless explicitely requested by an Admin [using the `status` parameter](/api/reference.md#status). Non-admin users do not have access to soft-deleted items.
+As mentioned above, Soft Delete is meant to _feel_ like an item has been deleted without permanently removing it from the database. They are hidden from both the App and API responses unless explicitely requested by an Admin [using the `status` parameter](/api-reference/reference.md#status). Non-admin users do not have access to soft-deleted items.
 
 ## Workflow
 
-The status interface also enables extended permission options that allow [setting permissions based on an item's status](/app/admin/permissions.md#status-level).
+The status interface also enables extended permission options that allow [setting permissions based on an item's status](/guides/permissions.md#status-level).
 
 ## Custom Status Interfaces
 
-The core status interface should work for 90% of use-cases, but you can still take advantage of the functionality with different styling or interactions. To do this you would [create a custom interface](/extensions/interfaces.md) that uses the `status` [field type](/api/admin/field-types.md).
+The core status interface should work for 90% of use-cases, but you can still take advantage of the functionality with different styling or interactions. To do this you would [create a custom interface](/extensions/interfaces.md) that uses the `status` [field type](/guides/field-types.md).
 
 ## Soft-Delete Flow
 

@@ -1,6 +1,6 @@
 # Helpers
 
-Utility functions and microlibraries that are being used across the system are being stored and managed in the `/helpers` folder. Every function is in a separate file, and is being bundled into `this.$helpers` in the `/helpers/index.js` file.
+> Utility functions and microlibraries that are being used across the App are being stored and managed in the `/helpers` folder. Every function is in a separate file, and is being bundled into `this.$helpers` in the `/helpers/index.js` file.
 
 ## Functions
 
@@ -69,8 +69,6 @@ this.$helpers.formatFilters(filters);
 
 ## Micro Libraries
 
-
-
 ### [`micromustache`](https://www.npmjs.com/package/micromustache)
 
 String interpolation using an object.
@@ -102,4 +100,3 @@ this.$helpers.micromustache.render(
 this.$helpers.shortid.generate();
 // => PPBqWA9
 ```
-

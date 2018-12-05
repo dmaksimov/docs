@@ -8,9 +8,9 @@ Directus has been tested on Apache 2, NGINX, and Caddy. In theory, it should wor
 
 Depending on the HTTP web server you are using, you may need to ensure proper setup for Directus to work as expected. Any edge-case server configurations are outlined below:
 
-* **Apache 2** – [View Setup Details](./setup-apache.md)
-* **NGINX** – [View Setup Details](./setup-nginx.md)
-* **Caddy** – [View Setup Details](./setup-caddy.md)
+* **Apache 2** – [View Setup Details](/advanced/server-setup.md#apache)
+* **NGINX** – [View Setup Details](/advanced/server-setup.md#nginx)
+* **Caddy** – [View Setup Details](/advanced/server-setup.md#caddy)
 
 ### Permissions
 

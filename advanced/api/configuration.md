@@ -1,8 +1,8 @@
 # Configuring the API
 
-The API is configured through project files in the `/config` directory. A [sample config file](https://github.com/directus/api/blob/master/config/api_sample.php) is provided in case you would like to [manually install](./configure-manually.md) the API instead of using the [App installer](./configure-with-app.md) or [CLI installer](./configure-with-script.md).
+> Each API project configuration is contained within a dedicated file in the `/config` directory. Additionally, this process adds a boilerplate system schema into the project's database.
 
-## Project Config File
+## Project Config Files
 
 Each API instance can manage multiple projects. Each project has its own config, database, and file storage. Any extensions installed in the API will be available for all projects it manages.
 
@@ -10,7 +10,104 @@ The first project you create must be the default. Default projects are defined b
 
 Subsequent projects can be added with new config files, using this naming convention: `config/api.[project-name].php`. Each project's config should point to a dedicated database and unique storage paths. Once configured, the API URL will be scoped to the project, eg: `https://api.example.com/project-name/collections`
 
-## Config Options
+## Configure Manually
+
+### Create Config File
+
+Create a copy of [`config/api_sample.php`](https://github.com/directus/api/blob/master/config/api_sample.php) and change the name to `config/api.php` (for default project).
+
+### Database Details
+
+Next, update the `database` values with your own:
+
+```php
+'database' => [
+    'type' => 'mysql',
+    'host' => 'localhost',
+    'port' => 3306,
+    'name' => 'directus_test',
+    'username' => 'root',
+    'password' => 'root',
+    'engine' => 'InnoDB',
+    'charset' => 'utf8mb4'
+]
+```
+
+### Auth Keys
+
+These keys can be anything, but we recommend a “strong” and unique value. They are unique identifiers that ensure your auth tokens are only able to be used within this project.
+
+```
+'auth' => [
+  'secret_key' => '<secret-authentication-key>',
+  'public_key' => '<public-authentication-key>',
+  'social_providers' => [ ... ]
+```
+
+### Boilerplate System Database
+
+Finally, we must import the Directus system tables and data primer into the database by importing this SQL file: `/src/schema.sql`. With this method, your initial Admin user credentials will be:
+
+* **User:** `admin@example.com`
+* **Password:** `password`
+
+## Configure with Script
+
+### Create Config File
+
+```bash
+$ bin/directus install:config -n <database-name> -u <mysql-user> -p <mysql-password>
+```
+
+### Options
+
+| Name    | Description                                                           |
+|---------|-----------------------------------------------------------------------|
+| `-h`    | Hostname or IP address of the database server (Default: `localhost`)  |
+| `-P`    | Port of the database server (Default: `3306`)                         |
+| `-t`    | Type of the database (Default: `mysql`)                               |
+| `-n`    | Name of the database                                                  |
+| `-u`    | Username for the database connection                                  |
+| `-p`    | Password for the database connection                                  |
+| `-c`    | Tell to enable or disable CORS (Default: `false`)                     |
+| `-e`    | Email used by the Mailer as From/Sender (Default: `admin@example.com`)|
+| `-N`    | Name of the project (Default: `_`)                                    |
+
+### Boilerplate System Database
+
+```bash
+$ bin/directus install:database
+```
+
+### Create Admin User
+
+```bash
+$ bin/directus install:install -e <admin-email> -p <admin-password> -t <project-title>
+```
+
+#### Options
+
+| Name    | Description                                                           |
+|---------|-----------------------------------------------------------------------|
+| `-e`    | Email of the Directus user (Default: `admin@example.com`)             |
+| `-p`    | Password of the Directus user (Default: `password`)                   |
+| `-T`    | Token of the Directus user                   |
+| `-t`    | Title of the project (Default: `Directus`)                            |
+| `-N`    | Name of the project (Default: `_`)                                    |
+
+### Testing
+
+Test that everything is working by making a request to the `users` endpoint using the `access_token`.
+
+```
+GET http://localhost/_/users?access_token=admin_token
+```
+
+## Configure with App
+
+@TODO
+
+## Config File Options
 
 ### `app`
 
@@ -249,7 +346,7 @@ The `secret_key` and `public_key` can be anything, but we recommend a "strong" a
 
 #### Okta
 
-Okta offers both SSO as well as external user management through SCIM. [Learn more about configuring Okta auth](./okta.md).
+Okta offers both SSO as well as external user management through SCIM. [Learn more about configuring Okta auth](../../guides/sso.md#okta).
 
 | Name            | Description   |
 | --------------- | ------------- |

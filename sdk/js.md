@@ -1,6 +1,6 @@
 # SDK JS
 
-> A lightweight JavaScript library that makes working with the Directus API even easier. It keeps you logged in, handles token management, and provides quick access to all [API Endpoints](../api-reference/).
+> A lightweight JavaScript library that makes working with the Directus API even easier. It keeps you logged in, handles token management, and provides quick access to all [API Endpoints](../api-reference/reference.md).
 
 ## Installation
 
