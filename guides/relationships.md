@@ -26,7 +26,9 @@ In this example the `directors` collection uses the default `id` primary key, wh
 
 #### Screenshots
 
-Here are some screenshots that show the above process in more detail.
+Both dropdowns under "This Collection" are disabled since those refer to the field we're configuring now. The Related Field is also disabled since it must be the collection's Primary Key. All you need to do is choose which collection you want to relate to... in this case: `directors`.
+
+<img src="../img/m2o/relation.png">
 
 <img src="../img/m2o/field.png" width="100">
 <img src="../img/m2o/interface.png" width="100">
@@ -58,7 +60,9 @@ Technically, this process does not create a new field, it remotely manages the r
 
 #### Screenshots
 
-Here are some screenshots that show the above process in more detail.
+Both dropdowns under "This Collection" are disabled since those refer to the field we're configuring now. First, choose the Related Collection, in this case `movies`. Once that is selected the Field dropdown will update to show the allowed options and you can choose the field that will store the foreign key in the related collection. In this example, `movies.director` will store `director.id` so we choose `director`.
+
+<img src="../img/o2m/relation.png">
 
 <img src="../img/o2m/field.png" width="100">
 <img src="../img/o2m/interface.png" width="100">
@@ -105,9 +109,13 @@ This setup is specific to the `movies → genres` (M2M) field. The following ste
     * **Display Template** sets the columns the interface shows (we're using `{{name}}`)
 :::
 
+![M2M](../img/m2m.png)
+
 #### Screenshots
 
-Here are some screenshots that show the above process in more detail.
+Both dropdowns under "This Collection" are disabled since those refer to the field we're configuring now. The Related Field is also disabled since it must be the collection's Primary Key. First, choose the collection you want to relate to. Now select a junction collection and connect its keys by following the arrows.
+
+<img src="../img/m2m/relation.png">
 
 <img src="../img/m2m/create_junction.png" width="100">
 <img src="../img/m2m/junction.png" width="100">
@@ -116,7 +124,9 @@ Here are some screenshots that show the above process in more detail.
 <img src="../img/m2m/options.png" width="100">
 <img src="../img/m2m/done.png" width="100">
 
-![M2M](../img/m2m.png)
+:::tip Relation Arrows
+During relationship setup the App shows arrows between each field to help visualize the data model. *Each arrow points from the primary key field to the foreign key field.*
+:::
 
 ## Many-to-Any
 
