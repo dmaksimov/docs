@@ -2,9 +2,15 @@
 
 > Directus offers built-in authentication using securely hashed passwords. Alternatively, you can enable any of our Single Sing-On (SSO) services or create your own adapter for custom authentication. Directus also supports SCIM for external user management.
 
+The auth providers supports OAuth 1.0 and 2.0. The Directus Auth provider is class that creates an OAuth client based on the phpleague [OAuth 1.0](https://github.com/thephpleague/oauth1-client) and [OAuth 2.0](https://github.com/thephpleague/oauth2-client) Client libraries.
+
 ## Files & Structure
 
 ### `Provider.php`
+
+For OAuth 1.0 the provider class must extends from `Directus\Authentication\Sso\OneSocialProvider` and must implement a `createProvider` method that returns a `League\OAuth1\Client\Server` object. For OAuth 2.0 the provider class must extends from `Directus\Authentication\Sso\TwoSocialProvider` and implement a `createProvider` method that returns a `League\OAuth2\Client\Provider\AbstractProvider` object.
+
+#### OAuth 1.0 Example
 
 ```php
 <?php
@@ -47,7 +53,57 @@ class Provider extends OneSocialProvider
 }
 ```
 
+#### OAuth 2.0 Example
+
+```php
+<?php
+
+namespace Directus\Authentication\Sso\Provider\google;
+
+use Directus\Authentication\Sso\TwoSocialProvider;
+use League\OAuth2\Client\Provider\Google;
+
+class Provider extends TwoSocialProvider
+{
+    /**
+     * @var Google
+     */
+    protected $provider = null;
+
+    /**
+     * @inheritdoc
+     */
+    public function getScopes()
+    {
+        return [
+            'email'
+        ];
+    }
+
+    /**
+     * Creates the Google provider oAuth client
+     *
+     * @return Google
+     */
+    protected function createProvider()
+    {
+        $this->provider = new Google([
+            'clientId'          => $this->config->get('client_id'),
+            'clientSecret'      => $this->config->get('client_secret'),
+            'redirectUri'       => $this->getRedirectUrl(),
+            'hostedDomain'      => $this->config->get('hosted_domain'),
+            'useOidcMode'       => (bool) $this->config->get('use_oidc_mode'),
+        ]);
+
+        return $this->provider;
+    }
+}
+
+```
+
 ### `auth.php`
+
+This file must specify what is the provider class using the `provider` key using a class resolution or whichever value that result positive when using `class_exists` function.
 
 ```php
 <?php
