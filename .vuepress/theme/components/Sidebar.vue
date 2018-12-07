@@ -4,12 +4,14 @@
     <slot name="top"/>
     <ul class="sidebar-links" v-if="items.length">
       <li v-for="(item, i) in items" :key="i">
-        <SidebarGroup v-if="item.type === 'group'"
+        <SidebarGroup
+          v-if="item.type === 'group'"
           :item="item"
           :first="i === 0"
           :open="i === openGroupIndex"
-          :collapsable="item.collapsable"
-          @toggle="toggleGroup(i)"/>
+          :collapsable="item.collapsable || item.collapsible"
+          @toggle="toggleGroup(i)"
+        />
         <SidebarLink v-else :item="item"/>
       </li>
     </ul>
@@ -21,24 +23,29 @@
 import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink from './SidebarLink.vue'
 import NavLinks from './NavLinks.vue'
-import { isActive } from './util'
+import { isActive } from '../util'
 
 export default {
   components: { SidebarGroup, SidebarLink, NavLinks },
+
   props: ['items'],
+
   data () {
     return {
       openGroupIndex: 0
     }
   },
+
   created () {
     this.refreshIndex()
   },
+
   watch: {
     '$route' () {
       this.refreshIndex()
     }
   },
+
   methods: {
     refreshIndex () {
       const index = resolveOpenGroupIndex(
@@ -49,11 +56,13 @@ export default {
         this.openGroupIndex = index
       }
     },
+
     toggleGroup (index) {
       this.openGroupIndex = index === this.openGroupIndex ? -1 : index
     },
+
     isActive (page) {
-      return isActive(this.$route, page.path)
+      return isActive(this.$route, page.regularPath)
     }
   }
 }
@@ -70,8 +79,6 @@ function resolveOpenGroupIndex (route, items) {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
-
 .sidebar
   ul
     padding 0

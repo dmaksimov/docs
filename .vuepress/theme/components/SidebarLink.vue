@@ -1,12 +1,12 @@
 <script>
-import { isActive, hashRE, groupHeaders } from './util'
-import AppLink from './AppLink'
+import { isActive, hashRE, groupHeaders } from '../util'
 
 export default {
   functional: true,
-  components: {AppLink},
-  props: ['item', 'open', 'collapsable'],
-  render (h, { parent: { $page, $site, $route }, props: { item, open, collapsable }}) {
+
+  props: ['item'],
+
+  render (h, { parent: { $page, $site, $route }, props: { item }}) {
     // use custom active class matching logic
     // due to edge case of paths ending with / + hash
     const selfActive = isActive($route, item.path)
@@ -15,18 +15,19 @@ export default {
     const active = item.type === 'auto'
       ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
       : selfActive
-    const hidden = $site.themeConfig.hiddenLinks.includes(item.path);
+    const hidden = $site.themeConfig.hiddenLinks.includes(item.path)
     const link = renderLink(h, item.path, item.title || item.path, active, hidden)
     const configDepth = $page.frontmatter.sidebarDepth != null
       ? $page.frontmatter.sidebarDepth
       : $site.themeConfig.sidebarDepth
     const maxDepth = configDepth == null ? 1 : configDepth
+    const displayAllHeaders = !!$site.themeConfig.displayAllHeaders
     if (item.type === 'auto') {
       return [link, renderChildren(h, item.children, item.basePath, $route, maxDepth)]
-    } else if (active && item.headers && !hashRE.test(item.path)) {
+    } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
       const children = groupHeaders(item.headers)
       return [link, renderChildren(h, children, item.path, $route, maxDepth)]
-    } else if (collapsable && open && hidden && !active && item.headers && !hashRE.test(item.path)) {
+    } else if (hidden && !active && item.headers && !hashRE.test(item.path)) {
       const children = groupHeaders(item.headers)
       return [link, renderChildren(h, children, item.path, $route, maxDepth)]
     } else {
@@ -36,14 +37,6 @@ export default {
 }
 
 function renderLink (h, to, text, active, hidden) {
-  if (~to.indexOf('http')) return h('a',
-    {
-      attrs: {
-        href: to
-      },
-      class: 'sidebar-link'
-    },
-    text)
   return h('router-link', {
     props: {
       to,
@@ -71,8 +64,6 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
-
 .sidebar .sidebar-sub-headers
   padding-left 1rem
   font-size 0.95em
@@ -93,7 +84,7 @@ a.sidebar-link
     color $accentColor
     border-left-color $accentColor
   &.hidden
-    display: none
+    display none
   .sidebar-group &
     padding-left 2rem
   .sidebar-sub-headers &

@@ -1,18 +1,48 @@
 <template>
-  <div class="theme-container"
+  <div
+    class="theme-container"
     :class="pageClasses"
     @touchstart="onTouchStart"
-    @touchend="onTouchEnd">
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
-    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar" />
-    <div class="custom-layout" v-if="$page.frontmatter.layout">
-      <component :is="$page.frontmatter.layout"/>
-    </div>
-    <Home v-else-if="$page.frontmatter.home"/>
-    <Page v-else :sidebar-items="sidebarItems">
-      <slot name="page-top" slot="top"/>
-      <slot name="page-bottom" slot="bottom"/>
+    @touchend="onTouchEnd"
+  >
+    <Navbar
+      v-if="shouldShowNavbar"
+      @toggle-sidebar="toggleSidebar"
+    />
+
+    <div
+      class="sidebar-mask"
+      @click="toggleSidebar(false)"
+    ></div>
+
+    <Sidebar
+      :items="sidebarItems"
+      @toggle-sidebar="toggleSidebar"
+    >
+      <slot
+        name="sidebar-top"
+        slot="top"
+      />
+      <slot
+        name="sidebar-bottom"
+        slot="bottom"
+      />
+    </Sidebar>
+
+    <Home v-if="$page.frontmatter.home"/>
+
+    <Page
+      v-else
+      :sidebar-items="sidebarItems"
+    >
+      <slot
+        name="page-top"
+        slot="top"
+      />
+      <slot
+        name="page-bottom"
+        slot="bottom"
+      />
     </Page>
   </div>
 </template>
@@ -20,14 +50,15 @@
 <script>
 import Vue from 'vue'
 import nprogress from 'nprogress'
-import Home from './Home.vue'
-import Navbar from './Navbar.vue'
-import Page from './Page.vue'
-import Sidebar from './Sidebar.vue'
-import { resolveSidebarItems } from './util'
+import Home from '../components/Home.vue'
+import Navbar from '../components/Navbar.vue'
+import Page from '../components/Page.vue'
+import Sidebar from '../components/Sidebar.vue'
+import { resolveSidebarItems } from '../util'
 
 export default {
   components: { Home, Page, Sidebar, Navbar },
+
   data () {
     return {
       isSidebarOpen: false
@@ -35,13 +66,6 @@ export default {
   },
 
   computed: {
-    versions() {
-      const { themeConfig } = this.$site
-      return themeConfig.versions.map(version => ({
-        name: version[0],
-        path: version[1],
-      }))
-    },
     shouldShowNavbar () {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
@@ -58,23 +82,25 @@ export default {
         this.$themeLocaleConfig.nav
       )
     },
+
     shouldShowSidebar () {
       const { frontmatter } = this.$page
       return (
-        !frontmatter.layout &&
         !frontmatter.home &&
         frontmatter.sidebar !== false &&
         this.sidebarItems.length
       )
     },
+
     sidebarItems () {
       return resolveSidebarItems(
         this.$page,
-        this.$route,
+        this.$page.regularPath,
         this.$site,
         this.$localePath
       )
     },
+
     pageClasses () {
       const userPageClass = this.$page.frontmatter.pageClass
       return [
@@ -89,8 +115,6 @@ export default {
   },
 
   mounted () {
-    window.addEventListener('scroll', this.onScroll)
-
     // configure progress bar
     nprogress.configure({ showSpinner: false })
 
@@ -108,12 +132,10 @@ export default {
   },
 
   methods: {
-    changeVersion(to) {
-      this.$router.push(to)
-    },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
+
     // side swipe
     onTouchStart (e) {
       this.touchStart = {
@@ -121,6 +143,7 @@ export default {
         y: e.changedTouches[0].clientY
       }
     },
+
     onTouchEnd (e) {
       const dx = e.changedTouches[0].clientX - this.touchStart.x
       const dy = e.changedTouches[0].clientY - this.touchStart.y
@@ -137,4 +160,4 @@ export default {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.styl" lang="stylus"></style>
+<style src="../styles/theme.styl" lang="stylus"></style>
