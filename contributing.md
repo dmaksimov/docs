@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for reading this section, our small team truly appreciates every contribution made by our community: feature requests, bug reports, and especially pull requests!. If you have _any_ questions please feel free to reach out to our Core team on [Slack](https://slack.getdirectus.com).
+Thank you for reading this section, our small team truly appreciates every contribution made by our community: feature requests, bug reports, and especially pull requests! If you have _any_ questions please feel free to reach out to our Core team on [Slack](https://slack.getdirectus.com).
 
 ❤️ _The Core Directus Team_
 
